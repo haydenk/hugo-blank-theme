@@ -1,2 +1,7 @@
-# hugo-blank-theme
-Empty Hugo Theme Starter Project
+# Theme Name
+
+## Features
+
+## Installation
+
+## Configuration
