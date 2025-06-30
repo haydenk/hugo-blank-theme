@@ -1,4 +1,4 @@
-name = 'blank'
+name = 'hugo-blank-theme'
 license = 'GPL-3.0'
 licenselink = 'https://github.com/haydenk/hugo-blank-theme'
 description = 'Simple, minimialistic, full-featured Hugo theme'
@@ -22,7 +22,7 @@ features = ['some', 'awesome', 'features']
 [original]
   author = 'Name of original author'
   homepage = 'Website of original author'
-  repo = 'https://github.com/owner/repo'
+  repo = 'https://github.com/haydenk/hugo-blank-theme'
 
 [module]
   [module.hugoVersion]

@@ -1,0 +1,19 @@
+{{- define "main" -}}
+<main>
+  <h1>{{ .Title }}</h1>
+
+  {{- .Content -}}
+  {{- range $category, $pages := .Site.Taxonomies.categories -}}
+    <h2>{{ title $category }}</h2>
+
+    <ol reversed>
+    {{- range $pages -}}
+        <li>
+          <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>:&nbsp;
+          <time datetime="{{ .Date }}">{{ .Date.Format "02 Jan 2006" }}</time>
+        </li>
+      {{- end -}}
+    </ol>
+  {{- end -}}
+</main>
+{{- end -}}

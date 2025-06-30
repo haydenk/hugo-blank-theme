@@ -1,70 +1,31 @@
 baseURL = 'https://www.example.com/'
 languageCode = 'en-US'
-title = 'Blank Theme'
-theme = 'hugo-blank'
-disableKinds = [ "taxonomy" ]
-ignoreErrors = [ "error-disable-taxonomy" ]
+title = 'Blank Theme Template'
+theme = 'hugo-blank-theme'
 
-[module]
-  [module.hugoVersion]
-    extended = false
-    min      = "0.112.0"
+[menus]
+  [[menus.main]]
+    name = 'Home'
+    pageRef = '/'
+    weight = 10
 
-[params]
-  description = "Blank Theme"
-  keywords = []
+  [[menus.main]]
+    name = 'Archive'
+    pageRef = '/posts'
+    weight = 11
 
-  mainCss = '/css/main.css'
-  mainJs = '/js/main.js'
-  [[params.baseStyles]]
-    src = 'css/variables.css'
-  [[params.baseStyles]]
-    src = 'css/main.css'
-  [[params.baseStyles]]
-    src = 'css/syntax.css'
+  [[menus.main]]
+    name = 'About'
+    pageRef = '/about'
+    weight = 20
 
-[[menus.main]]
-  name = 'Home'
-  pageRef = '/'
-  weight = 10
-
-[[menus.main]]
-  name = 'About'
-  pageRef = '/about'
-  weight = 20
-
-[[menus.main]]
-  name = 'Github'
-  url = 'https://github.com/haydenk/hugo-blank-theme'
-  weight = 99
-  [menus.main.params]
-    target = '_blank'
-    rel = 'external'
-
-[permalinks]
-  [permalinks.page]
-    posts = '/post/:year/:month/:day/:slug/'
-  [permalinks.section]
-    posts = '/post/'
-
-[outputFormats]
-  [outputFormats.rss]
-    mediaType = "application/rss+xml"
-    baseName = "feed"
-  [outputFormats.json]
-    mediaType = "application/json"
-    baseName = "feed"
-    isPlainText = true
-
-[outputs]
-  home = ['html','json','rss']
-  page = ['html']
-  section = ['html']
-  taxonomy = ['html']
-  term = ['html']
-
-[pagination]
-  pagerSize = 10
+  [[menus.main]]
+    name = 'Github'
+    url = 'https://github.com/haydenk/hugo-plain-text'
+    weight = 99
+    [menus.main.params]
+      target = '_blank'
+      rel = 'external'
 
 [markup]
   [markup.highlight]

@@ -1,0 +1,13 @@
+{{- define "main" -}}
+<main>
+  <h2>Tag: {{ .Title }}</h2>
+  <ol reversed>
+    {{- range .Pages -}}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>:&nbsp;
+        <time datetime="{{ .Date }}">{{ .Date.Format "02 Jan 2006" }}</time>
+      </li>
+    {{- end -}}
+  </ol>
+</main>
+{{- end -}}

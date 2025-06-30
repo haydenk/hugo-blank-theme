@@ -1,0 +1,16 @@
+{{- $scripts := sort (resources.Match "js/*.js") ".Name" -}}
+{{- if eq hugo.Environment "development" -}}
+    {{- range $scripts -}}
+        {{- with resources.Get . -}}
+        <script src="{{ .RelPermalink }}"></script>
+        {{- end -}}
+    {{- end -}}
+{{- else -}}
+    {{- $JS := slice -}}
+    {{- range $scripts -}}
+        {{- $JS = $JS | append (resources.Get .) -}}
+    {{- end -}}
+    {{- with $JS | resources.Concat "main.js" | minify | fingerprint -}}
+        <script src="{{ .RelPermalink }}"></script>
+    {{- end -}}
+{{- end -}}

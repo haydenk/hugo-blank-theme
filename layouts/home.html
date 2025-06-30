@@ -1,0 +1,14 @@
+{{- define "main" -}}
+<main>
+  {{- .Content -}}
+
+  <ol reversed>
+    {{- range where site.RegularPages "Type" "eq" "posts" -}}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>:&nbsp;
+        <time datetime="{{ .Date }}">{{ .Date | time.Format ":date_long" }}</time>
+      </li>
+    {{- end -}}
+  </ol>
+</main>
+{{- end -}}
