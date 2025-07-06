@@ -1,5 +1,19 @@
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
+<meta name="language" content="en">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{{- partial "seo_tags.html" . -}}
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
-{{ partialCached "head/css.html" . }}
-{{ partialCached "head/js.html" . }}
+
+{{- with .OutputFormats.Get "rss" -}}
+  <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ site.Title }}">
+{{- end -}}
+
+{{- with .OutputFormats.Get "json" -}}
+<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ site.Title }}">
+{{- end -}}
+
+{{- partialCached "head/css.html" . -}}
+{{- partialCached "head/js.html" . -}}
